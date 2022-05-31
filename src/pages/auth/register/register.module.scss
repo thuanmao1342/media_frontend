@@ -15,22 +15,20 @@
 }
 .footer_form {
     margin-top: 20px;
-    text-align: left;
-    button {
-        display: block;
-        margin: 10px auto;
-        width: 100%;
+    .footer_form_btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        button,
+        a {
+            flex-basis: 48%;
+            margin: 10px 0;
+            width: 100%;
+            height: 56px;
+        }
     }
     span {
         padding: 0;
-    }
-    .link {
-        text-align: right;
-        a {
-            font-size: 12px;
-            text-decoration: none;
-            margin: 5px;
-        }
     }
 }
 
