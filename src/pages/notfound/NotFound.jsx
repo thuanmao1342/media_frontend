@@ -2,6 +2,7 @@ import React from "react";
 import styles from './notfound.module.scss';
 
 function NotFound() {
+    const currentUser = localStorage.getItem('CURRENT_USER');
     return (
         <div>
             <div className={styles.face}>
@@ -16,10 +17,9 @@ function NotFound() {
             </div>
 
             <h1>Oops! Something went wrong!</h1>
-            <a href="/">
+            <a href={currentUser?"/":"login"}>
               <div className={styles.btn}>Return to Home</div>  
             </a>
-            
         </div>
     );
 }

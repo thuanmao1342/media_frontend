@@ -19,8 +19,8 @@ export default function Login() {
   });
   const navigate = useNavigate();
   const onSubmit = data => {
+    localStorage.setItem('CURRENT_USER', 'Bearer ' + data.username);
     navigate("/");
-    console.log(data);
   }
 
   return (
@@ -52,20 +52,25 @@ export default function Login() {
                   error={errors.password ? true : false}
                   id="password"
                   label="Password"
+                  type="password"
                   fullWidth
                   helperText={errors.password?.message}
                   required
                 />
               </Stack>
               <div className={styles.footer_form}>
-                <Checkbox {...register("remember")} defaultChecked /> <label>Remember me</label>
+                <div className={styles.link}>
+                  <div>
+                    <Checkbox {...register("remember")} defaultChecked /> <label>Remember me</label>
+                  </div>
+                  <a href='/forgot-password'>forgot password</a>
+                </div>
                 <Button type='submit' variant="contained">
                   Login
                 </Button>
-                <div className={styles.link}>
-                  <a href='/register'>create a account</a>
-                  <a href='/refeshpassword'>forgot password</a>
-                </div>
+                <Typography variant='body2'>
+                  Don't have an account? <a href='/register'>Sign up</a>
+                </Typography>
               </div>
             </form>
           </Box>
