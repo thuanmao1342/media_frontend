@@ -40,26 +40,33 @@
         text-align: center;
     }
 }
-@media screen and (max-width: 768px) {
-    .footer_form {
-        margin-top: 0;
-        text-align: center;
-        button {
-            display: block;
-            margin: 10px auto 15px auto;
-            width: 100%;
-            height: 56px;
-        }
-        span {
-            padding: 0;
-        }
-        .link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            a {
-                margin: 5px;
-            }
-        }
+@media screen and (max-width: 1024px) {
+    .bg_img {
+        background-image: url("https://source.unsplash.com/random");
+        box-sizing: border-box;
+        margin: 0;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        background-repeat: no-repeat;
+        background-color: #fafafa;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+    }
+    .form{
+        position: absolute;
+        z-index: 1;
+        background-color: #fafafa;
+        top: 25%;
+        width: 100%;
+        border-radius: 10px;
+        padding-top: 10px;
     }
 }

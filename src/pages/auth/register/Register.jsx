@@ -60,9 +60,9 @@ export default function Register() {
                     {...register("gender")}
                     label="Gender"
                   >
-                    <MenuItem value={1}>Male</MenuItem>
-                    <MenuItem value={0}>Female</MenuItem>
-                    <MenuItem value={3}>Other</MenuItem>
+                    <MenuItem value={'1'}>Male</MenuItem>
+                    <MenuItem value={'0'}>Female</MenuItem>
+                    <MenuItem value={'3'}>Other</MenuItem>
                   </Select>
                   <FormHelperText>{errors.gender?.message}</FormHelperText>
                 </FormControl>
