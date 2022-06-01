@@ -62,9 +62,9 @@ export default function Layout(props) {
       <CssBaseline />
       <CustomAppBar />
       <Toolbar id="back-to-top-anchor" />
-      <Container maxWidth="false">
+      <Container maxWidth="xl">
         <Box sx={{ my: 2 }}>
-          {[...new Array(122)]
+          {[...new Array(50)]
             .map(
               () => `Cras mattis consectetur purus sit amet fermentum.
 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
