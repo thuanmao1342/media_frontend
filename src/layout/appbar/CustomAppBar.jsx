@@ -22,17 +22,17 @@ const CustomAppBar = () => {
 
   const pages = [
     {
-      title: "Home",
+      title: t("common:home"),
       path: "/",
       icon: <AdbIcon />,
     },
     {
-      title: "About",
+      title: t("common:about"),
       path: "/about",
       icon: <AdbIcon />,
     },
     {
-      title: "Contact",
+      title: t("common:contact"),
       path: "/contact",
       icon: <AdbIcon />,
     },

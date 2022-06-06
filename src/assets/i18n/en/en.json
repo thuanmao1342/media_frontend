@@ -1,3 +1,25 @@
 {
-    "app_name": "Media promax"
+    "app_name": "Media promax",
+    "header":{
+        "home": "Home",
+        "about": "About",
+        "contact": "Contact",
+        "login": "Login",
+        "register": "Register",
+        "logout": "Logout",
+        "profile": "Profile",
+        "cart": "Cart",
+        "search": "Search",
+        "search_placeholder": "Search for products",
+        "search_button": "Search",
+        "search_result": "Search result",
+        "search_result_placeholder": "Search result for",
+        "search_result_button": "Search",
+        "search_result_button_placeholder": "Search result for",
+        "search_result_button_placeholder_empty": "Search result for",
+        "search_result_button_placeholder_empty_2": "Search result for",
+        "search_result_button_placeholder_empty_3": "Search result for",
+        "search_result_button_placeholder_empty_4": "Search result for",
+        "search_result_button_placeholder_empty_5": "Search result for"
+    }
 }
