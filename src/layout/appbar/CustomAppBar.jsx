@@ -13,51 +13,52 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
-
-const pages = [
-    {
-        title: "Home",
-        path: "/",
-        icon: <AdbIcon />,
-    },
-    {
-        title: "About",
-        path: "/about",
-        icon: <AdbIcon />,
-    },
-    {
-        title: "Contact",
-        path: "/contact",
-        icon: <AdbIcon />,
-    },
-];  
-
-const settings = {
-  title: "Account",
-  icon: <Avatar>A</Avatar>,
-  items: [
-    {
-      title: "Profile",
-      icon: <Avatar>P</Avatar>,
-      link: "/profile",
-    },
-    {
-      title: "Settings",
-      icon: <Avatar>S</Avatar>,
-      link: "/settings",
-    },
-    {
-      title: "Sign Out",
-      icon: <Avatar>S</Avatar>,
-      link: "/signout",
-    },
-  ],
-};
+import { useTranslation } from "react-i18next";
 
 const CustomAppBar = () => {
+  const [t, i18n] = useTranslation("common");
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  const pages = [
+    {
+      title: "Home",
+      path: "/",
+      icon: <AdbIcon />,
+    },
+    {
+      title: "About",
+      path: "/about",
+      icon: <AdbIcon />,
+    },
+    {
+      title: "Contact",
+      path: "/contact",
+      icon: <AdbIcon />,
+    },
+  ];
+  
+  const settings = {
+    title: "Account",
+    icon: <Avatar>A</Avatar>,
+    items: [
+      {
+        title: "Profile",
+        icon: <Avatar>P</Avatar>,
+        link: "/profile",
+      },
+      {
+        title: "Settings",
+        icon: <Avatar>S</Avatar>,
+        link: "/settings",
+      },
+      {
+        title: "Sign Out",
+        icon: <Avatar>S</Avatar>,
+        link: "/signout",
+      },
+    ],
+  };
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -79,6 +80,15 @@ const CustomAppBar = () => {
     localStorage.removeItem("CUREENT_USER");
     window.location.href = "/login";
   };
+  function HeaderComponent() {
+    
+    return (
+      <div>
+        <button onClick={() => i18n.changeLanguage("vn")}>vn</button>
+        <button onClick={() => i18n.changeLanguage("en")}>en</button>
+      </div>
+    );
+  }
   return (
     <AppBar>
       <Container maxWidth="xl">
@@ -101,7 +111,7 @@ const CustomAppBar = () => {
           >
             LOGO
           </Typography>
-
+            <HeaderComponent />
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"

@@ -21,7 +21,11 @@ export default function ForgotPassword() {
         navigate("/");
         console.log(data);
     }
+    const [checkTos, setCheckTos] = React.useState(true);
 
+    const handleCheckTos = (event) => {
+      setCheckTos(!event.target.checked);
+    }
     return (
         <Box>
             <Grid container spacing={0} direction="row"
@@ -33,7 +37,7 @@ export default function ForgotPassword() {
                     </div>
                 </Grid>
                 <Grid item xs={5} className={styles.form}>
-                    <Typography variant='h3'>Sign in</Typography>
+                    <Typography variant='h3'>Forgot password</Typography>
                     <Box sx={{ p: 6 }}>
                         <form onSubmit={handleSubmit(onSubmit)} className={styles.from_login}>
                             <Stack spacing={4}>
@@ -49,10 +53,10 @@ export default function ForgotPassword() {
                             </Stack>
                             <div className={styles.footer_form}>
                                 <div className={styles.link}>
-                                    <Checkbox {...register("remember")} defaultChecked /> <label>Remember me</label>
+                                <Checkbox onChange={handleCheckTos} defaultChecked={false} /> <label>I agree all statements in <a href="/terms_of_service">Terms of service</a></label>
                                 </div>
-                                <Button type='submit' variant="contained">
-                                    Login
+                                <Button type='submit' variant="contained" disabled={checkTos}>
+                                    Submit
                                 </Button>
                                 <Typography variant='body2'>
                                     Don't have an account? <a href='/register'>Sign up</a>

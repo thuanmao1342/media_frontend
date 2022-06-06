@@ -1,16 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import { I18nextProvider } from "react-i18next";
+import i18next from "i18next";
+import vn from "./assets/i18n/vn/vn.json";
+import en from "./assets/i18n/en/en.json";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+i18next.init({
+  interpolation: { escapeValue: false },
+  lng: "en",
+  resources: {
+    en: {
+      common: en,
+    },
+    vn: {
+      common: vn,
+    },
+  },
+});
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <I18nextProvider i18n={i18next}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </I18nextProvider>
   </React.StrictMode>
 );
 
