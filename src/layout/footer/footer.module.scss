@@ -70,7 +70,6 @@ body {
     border-radius: 100px;
     color: #2f2f2f;
     line-height: 0;
-    margin: 0.6em 0;
     font-size: 1rem;
     padding: 0 1.3em;
 }
@@ -120,6 +119,55 @@ body {
 
 .heart {
     color: #2f2f2f;
+}
+
+.social {
+    $redColor: rgba(244, 67, 54, 1);
+    $blueColor: rgba(33, 150, 243, 1);
+
+    .flex_center {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: start;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .icon_3d {
+        padding: 5px 10px;
+        -webkit-animation: icon3d 200ms 10;
+        animation: icon3d 200ms 10;
+        color: black;
+        &:hover {
+            -webkit-animation: icon3d 200ms infinite;
+            animation: icon3d 200ms infinite;
+        }
+    }
+
+    @keyframes icon3d {
+        0% {
+            text-shadow: 5px 4px $redColor, -5px -6px $blueColor;
+        }
+        25% {
+            text-shadow: -5px -6px $redColor, 5px 4px $blueColor;
+        }
+        50% {
+            text-shadow: 5px -4px $redColor, -8px 4px $blueColor;
+        }
+        75% {
+            text-shadow: -8px -4px $redColor, -5px -4px $blueColor;
+        }
+        100% {
+            text-shadow: -5px 0 $redColor, 5px -4px $blueColor;
+        }
+    }
 }
 
 @media screen and (min-width: 24.375em) {
