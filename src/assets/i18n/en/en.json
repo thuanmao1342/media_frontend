@@ -1,0 +1,63 @@
+{
+    "app_name": "Media promax",
+    "language": {
+        "fr": "Français",
+        "en": "English",
+        "es": "Español",
+        "de": "Deutsch",
+        "it": "Italiano",
+        "pt": "Português",
+        "ru": "Русский",
+        "ja": "日本語", 
+        "zh": "中文",
+        "ko": "한국어",
+        "ar": "العربية",
+        "tr": "Türkçe",
+        "hi": "हिन्दी",
+        "id": "Indonesia",
+        "vi": "Tiếng Việt",
+        "ms": "Melayu",
+        "th": "ภาษาไทย",
+        "fa": "فارسی",
+        "bn": "বাংলা",
+        "ta": "தமிழ்",
+        "te": "తెలుగు",
+        "ml": "മലയാളം",
+        "kn": "ಕನ್ನಡ",
+        "mr": "मराठी",
+        "or": "ଓଡ଼ିଆ",
+        "pa": "ਪੰਜਾਬੀ",
+        "gu": "ગુજરાતી"
+    },
+    "header":{
+        "home": "Home",
+        "about": "About",
+        "contact": "Contact",
+        "login": "Login",
+        "register": "Register",
+        "logout": "Logout",
+        "profile": "Profile",
+        "cart": "Cart",
+        "search": "Search",
+        "search_placeholder": "Search for products",
+        "search_button": "Search",
+        "search_result": "Search result",
+        "search_result_placeholder": "Search result for",
+        "search_result_button": "Search",
+        "search_result_button_placeholder": "Search result for",
+        "search_result_button_placeholder_empty": "Search result for"
+    },
+    "settings":{
+        "settings": "Settings",
+        "language": "Language",
+        "currency": "Currency",
+        "currency_placeholder": "Select your currency",
+        "language_placeholder": "Select your language",
+        "save": "Save",
+        "cancel": "Cancel",
+        "close": "Close"
+    },
+    "footer":{
+        "footer": "Footer"
+    }
+}

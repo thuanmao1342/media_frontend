@@ -1,0 +1,63 @@
+{
+    "app_name": "Gì cũng có",
+    "language": {
+        "fr": "Français",
+        "en": "English",
+        "es": "Español",
+        "de": "Deutsch",
+        "it": "Italiano",
+        "pt": "Português",
+        "ru": "Русский",
+        "ja": "日本語", 
+        "zh": "中文",
+        "ko": "한국어",
+        "ar": "العربية",
+        "tr": "Türkçe",
+        "hi": "हिन्दी",
+        "id": "Indonesia",
+        "vi": "Tiếng Việt",
+        "ms": "Melayu",
+        "th": "ภาษาไทย",
+        "fa": "فارسی",
+        "bn": "বাংলা",
+        "ta": "தமிழ்",
+        "te": "తెలుగు",
+        "ml": "മലയാളം",
+        "kn": "ಕನ್ನಡ",
+        "mr": "मराठी",
+        "or": "ଓଡ଼ିଆ",
+        "pa": "ਪੰਜਾਬੀ",
+        "gu": "ગુજરાતી"
+    },
+    "header":{
+        "home": "Trang chủ",
+        "about": "Giới thiệu",
+        "contact": "Liên hệ",
+        "login": "Đăng nhập",
+        "register": "Đăng ký",
+        "logout": "Đăng xuất",
+        "profile": "Hồ sơ",
+        "cart": "Giỏ hàng",
+        "search": "Tìm kiếm",
+        "search_placeholder": "Tìm kiếm sản phẩm",
+        "search_button": "Tìm kiếm",
+        "search_result": "Kết quả tìm kiếm",
+        "search_result_placeholder": "Tìm kiếm sản phẩm",
+        "search_result_button": "Tìm kiếm",
+        "search_result_button_placeholder": "Tìm kiếm sản phẩm",
+        "search_result_button_placeholder_empty": "Không có kết quả"
+    },
+    "settings":{
+        "settings": "Cài đặt",
+        "language": "Ngôn ngữ",
+        "currency": "Tiền tệ",
+        "currency_placeholder": "Chọn tiền tệ",
+        "language_placeholder": "Chọn ngôn ngữ",
+        "save": "Lưu",
+        "cancel": "Hủy",
+        "close": "Đóng"
+    },
+    "footer":{
+        "footer": "Footer"
+    }
+}

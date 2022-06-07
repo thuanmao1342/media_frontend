@@ -1,0 +1,32 @@
+{
+    "footer": {
+        "title": "Footer",
+        "description": "Footer",
+        "logo": {
+            "url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+            "alt": "Google Logo"
+        },
+        "contact": {
+            "title": "Liên hệ",
+            "description": "Liên hệ với chúng tôi",
+            "email": "thuanmao1342@gmail.com",
+            "phone": "0989898989"
+        },
+        "social": {
+            "title": "Mạng xã hội",
+            "description": "Mạng xã hội",
+            "facebook": {
+                "url": "https://www.facebook.com/thuanmao1342",
+                "alt": "Facebook"
+            },
+            "twitter": {
+                "url": "https://twitter.com/thuanmao1342",
+                "alt": "Twitter"
+            },
+            "instagram": {
+                "url": "https://www.instagram.com/thuanmao1342",
+                "alt": "Instagram"
+            }
+        }
+    }
+}
