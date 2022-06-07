@@ -13,11 +13,22 @@ const ForgotPassword = lazy(() =>
 );
 
 function App() {
-  const {t} = useTranslation("common");
+  const { t, i18n } = useTranslation("common");
+  const language = localStorage.getItem("LANGUAGE");
+  const getLanguage = () => {
+    if (language) {
+      i18n.changeLanguage(language);
+    } else {
+      i18n.changeLanguage("en");
+      localStorage.setItem("LANGUAGE", "en");
+    }
+  };
 
   useEffect(() => {
-    document.title = t('common:app_name');
-  }, [t]);
+    document.title = t("common:app_name");
+    getLanguage();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className="App">
       <Routes>

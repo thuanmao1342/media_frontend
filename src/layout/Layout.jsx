@@ -9,6 +9,8 @@ import Fab from "@mui/material/Fab";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Zoom from "@mui/material/Zoom";
 import CustomAppBar from "./appbar/CustomAppBar";
+import Footer from "./footer/Footer";
+import { useTranslation } from "react-i18next";
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -56,7 +58,8 @@ ScrollTop.propTypes = {
   window: PropTypes.func,
 };
 
-export default function BackToTop(props) {
+export default function Layout(props) {
+  const [t] = useTranslation("common");
   return (
     <React.Fragment>
       <CssBaseline />
@@ -64,16 +67,12 @@ export default function BackToTop(props) {
       <Toolbar id="back-to-top-anchor" />
       <Container maxWidth="xl">
         <Box sx={{ my: 2 }}>
-          {[...new Array(50)]
-            .map(
-              () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
-            )
-            .join("\n")}
+          {t("content:post")}
+          {t("content:post")}
+          {t("content:post")}
         </Box>
       </Container>
+      <Footer />
       <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />

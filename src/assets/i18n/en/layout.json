@@ -1,0 +1,32 @@
+{
+    "footer": {
+        "title": "Footer",
+        "description": "Footer description",
+        "logo": {
+            "url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+            "alt": "Google Logo"
+        },
+        "contact": {
+            "title": "Contact",
+            "description": "Contact description",
+            "email": "thuanmao1342@gmail.com",
+            "phone": "0989898989"
+        },
+        "social": {
+            "title": "Social",
+            "description": "Social description",
+            "facebook": {
+                "url": "https://www.facebook.com/thuanmao1342",
+                "alt": "Facebook"
+            },
+            "twitter": {
+                "url": "https://twitter.com/thuanmao1342",
+                "alt": "Twitter"
+            },
+            "instagram": {
+                "url": "https://www.instagram.com/thuanmao1342",
+                "alt": "Instagram"
+            }
+        }
+    }
+}

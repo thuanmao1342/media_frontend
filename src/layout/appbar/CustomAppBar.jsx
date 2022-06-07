@@ -22,43 +22,47 @@ const CustomAppBar = () => {
 
   const pages = [
     {
-      title: t("common:home"),
+      title: t("common:header.home"),
       path: "/",
       icon: <AdbIcon />,
     },
     {
-      title: t("common:about"),
+      title: t("common:header.about"),
       path: "/about",
       icon: <AdbIcon />,
     },
     {
-      title: t("common:contact"),
+      title: t("common:header.contact"),
       path: "/contact",
       icon: <AdbIcon />,
     },
   ];
-  
+
   const settings = {
     title: "Account",
     icon: <Avatar>A</Avatar>,
     items: [
       {
-        title: "Profile",
+        title: t("common:header.profile"),
         icon: <Avatar>P</Avatar>,
         link: "/profile",
       },
       {
-        title: "Settings",
+        title: t("common:settings.settings"),
         icon: <Avatar>S</Avatar>,
         link: "/settings",
       },
       {
-        title: "Sign Out",
+        title: t("common:header.logout"),
         icon: <Avatar>S</Avatar>,
         link: "/signout",
       },
     ],
   };
+
+  const lng = localStorage.getItem("LANGUAGE");
+  const [language, setLanguage] = React.useState(lng);
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -80,15 +84,13 @@ const CustomAppBar = () => {
     localStorage.removeItem("CUREENT_USER");
     window.location.href = "/login";
   };
-  function HeaderComponent() {
-    
-    return (
-      <div>
-        <button onClick={() => i18n.changeLanguage("vn")}>vn</button>
-        <button onClick={() => i18n.changeLanguage("en")}>en</button>
-      </div>
-    );
-  }
+
+  const handleChangeLanguage = (event) => {
+    setLanguage(event.target.value);
+    i18n.changeLanguage(event.target.value);
+    localStorage.setItem("LANGUAGE", event.target.value);
+    document.title = t("common:app_name");
+  };
   return (
     <AppBar>
       <Container maxWidth="xl">
@@ -111,7 +113,6 @@ const CustomAppBar = () => {
           >
             LOGO
           </Typography>
-            <HeaderComponent />
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -201,6 +202,12 @@ const CustomAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <MenuItem>
+                <select value={language} onChange={handleChangeLanguage}>
+                  <option value={"en"}>{t('common:language.en')}</option>
+                  <option value={"vi"}>{t('common:language.vi')}</option>
+                </select>
+              </MenuItem>
               {settings.items.map((setting) => (
                 <MenuItem key={setting.title} onClick={handleCloseUserMenu}>
                   {setting.link === "/signout" ? (
