@@ -69,7 +69,6 @@ export default function Layout(props) {
         <Box sx={{ my: 2 }}>
           {t("content:post")}
           {t("content:post")}
-          {t("content:post")}
         </Box>
       </Container>
       <Footer />

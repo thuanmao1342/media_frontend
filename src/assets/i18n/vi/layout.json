@@ -27,6 +27,27 @@
                 "url": "https://www.instagram.com/thuanmao1342",
                 "alt": "Instagram"
             }
+        },
+        "media": {
+            "title": "Phương tiện",
+            "description": "Phương tiện",
+            "online": "Trực tuyến",
+            "print": "Truyền thống",
+            "alternative_ads": "Quảng cáo từng bài"
+        },
+        "technology": {
+            "title": "Công nghệ",
+            "description": "Công nghệ",
+            "google_ads": "Google Ads",
+            "google_analytics": "Google Analytics",
+            "google_tag_manager": "Google Tag Manager"
+        },
+        "legal": {
+            "title": "Pháp lý",
+            "description": "Pháp lý",
+            "terms_of_use": "Điều khoản sử dụng",
+            "privacy_policy": "Chính sách bảo mật",
+            "sitemap": "Sitemap"
         }
     }
 }

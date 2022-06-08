@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import BackDrop from "./pages/notfound/Backdrop";
 import { useTranslation } from "react-i18next";
-import userServie from "./services/user/userService";
+// import userServie from "./services/user/userService";
 
 const Login = lazy(() => import("./pages/auth/login/Login"));
 const NotFound = lazy(() => import("./pages/notfound/NotFound"));

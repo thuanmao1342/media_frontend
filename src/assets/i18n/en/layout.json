@@ -27,6 +27,27 @@
                 "url": "https://www.instagram.com/thuanmao1342",
                 "alt": "Instagram"
             }
+        },
+        "media": {
+            "title": "Media",
+            "description": "Media",
+            "online": "Online",
+            "print": "Print",
+            "alternative_ads": "Alternative Ads"
+        },
+        "technology": {
+            "title": "Technology",
+            "description": "Technology",
+            "google_ads": "Google Ads",
+            "google_analytics": "Google Analytics",
+            "google_tag_manager": "Google Tag Manager"
+        },
+        "legal": {
+            "title": "Legal",
+            "description": "Legal",
+            "terms_of_use": "Terms of Use",
+            "privacy_policy": "Privacy Policy",
+            "sitemap": "Sitemap"
         }
     }
 }
