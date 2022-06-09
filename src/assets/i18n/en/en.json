@@ -103,6 +103,10 @@
         "confirm_password_not_match": "Confirm password not match!",
         "i_agree": "I agree all statements in",
         "terms_of_service": "Terms of service",
-        "terms_of_service_error": "You must agree to the terms of service!"
+        "terms_of_service_error": "You must agree to the terms of service!",
+        "gender": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "other": "Other"
     }
 }

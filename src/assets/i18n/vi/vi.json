@@ -103,6 +103,10 @@
         "confirm_password_not_match": "Xác nhận mật khẩu không khớp!",
         "i_agree": "Tôi đồng ý với",
         "terms_of_service": "điều khoản sử dụng",
-        "terms_of_service_error": "Bạn phải đồng ý với điều khoản sử dụng!"
+        "terms_of_service_error": "Bạn phải đồng ý với điều khoản sử dụng!",
+        "gender": "Giới tính",
+        "male": "Nam",
+        "female": "Nữ",
+        "other": "Khác"
     }
 }

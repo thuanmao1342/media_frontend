@@ -68,7 +68,7 @@ export default function Register() {
     i18n.changeLanguage(event.target.value);
     localStorage.setItem("LANGUAGE", event.target.value);
     document.title = t("common:app_name");
-  }
+  };
   return (
     <Box>
       <div className={styles.register}>
@@ -76,7 +76,7 @@ export default function Register() {
           <div className={styles.bg_img}></div>
         </div>
         <div className={styles.form}>
-          <Typography variant="h3">Sign up</Typography>
+          <Typography variant="h3">{t("common:register.register")}</Typography>
           <Box sx={{ p: 2, pt: 5, pb: 5 }}>
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -87,17 +87,23 @@ export default function Register() {
                   {...register("fullname")}
                   error={errors.username ? true : false}
                   id="Fullname"
-                  label="Fullrname"
+                  label={t('common:register.name')}
                   fullWidth
                   helperText={errors.username?.message}
                   required
                 />
                 <FormControl fullWidth error={errors.gender ? true : false}>
-                  <InputLabel>Gender</InputLabel>
+                  <InputLabel>{t('common:register.gender')}</InputLabel>
                   <Select {...register("gender")} label="Gender">
-                    <MenuItem value={"1"}>Male</MenuItem>
-                    <MenuItem value={"0"}>Female</MenuItem>
-                    <MenuItem value={"3"}>Other</MenuItem>
+                    <MenuItem value={"1"}>
+                      {t("common:register.male")}
+                    </MenuItem>
+                    <MenuItem value={"0"}>
+                      {t("common:register.female")}
+                    </MenuItem>
+                    <MenuItem value={"3"}>
+                      {t("common:register.other")}
+                    </MenuItem>
                   </Select>
                   <FormHelperText>{errors.gender?.message}</FormHelperText>
                 </FormControl>
@@ -105,7 +111,7 @@ export default function Register() {
                   {...register("username")}
                   error={errors.username ? true : false}
                   id="username"
-                  label="Email or username"
+                  label={t("common:register.email_placeholder")}
                   fullWidth
                   helperText={errors.username?.message}
                   required
@@ -114,7 +120,7 @@ export default function Register() {
                   {...register("password")}
                   error={errors.password ? true : false}
                   id="password"
-                  label="Password"
+                  label={t("common:register.password_placeholder")}
                   fullWidth
                   helperText={errors.password?.message}
                   required
@@ -123,7 +129,7 @@ export default function Register() {
                   {...register("passwordConfirmation")}
                   error={errors.passwordConfirmation ? true : false}
                   id="passwordConfirmation"
-                  label="Confirm Password"
+                  label={t("common:register.confirm_password_placeholder")}
                   fullWidth
                   helperText={errors.passwordConfirmation?.message}
                   required
@@ -132,15 +138,17 @@ export default function Register() {
               <div className={styles.footer_form}>
                 <Checkbox onChange={handleCheckTos} defaultChecked={false} />{" "}
                 <label>
-                  I agree all statements in{" "}
-                  <a href="/terms_of_service">Terms of service</a>
+                  {t("common:register.i_agree")} {" "}
+                  <a href="/terms_of_service">
+                    {t("common:register.terms_of_service")}
+                  </a>
                 </label>
                 <div className={styles.footer_form_btn}>
                   <Button type="submit" variant="contained" disabled={checkTos}>
-                    Register
+                    {t("common:register.register_button")}
                   </Button>
                   <Button variant="outlined" href="/login">
-                    Login
+                    {t("common:register.login")}
                   </Button>
                 </div>
               </div>
