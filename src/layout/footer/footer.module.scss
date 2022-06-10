@@ -15,7 +15,7 @@ body {
     grid-template-rows: auto 1fr auto;
     font-size: 14px;
     background-color: #f4f4f4;
-    align-items: start;
+    align-items: center;
     min-height: 100vh;
 }
 
@@ -133,7 +133,7 @@ body {
         -webkit-box-pack: center;
         -webkit-justify-content: center;
         -ms-flex-pack: center;
-        justify-content: start;
+        justify-content: center;
         -webkit-box-align: center;
         -webkit-align-items: center;
         -ms-flex-align: center;

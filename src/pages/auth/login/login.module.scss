@@ -2,7 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     .bg_img__div {
-        flex-grow: 6;
+        max-width: 60%;
+        flex-grow: 3;
         .bg_img {
             background-image: url("https://source.unsplash.com/random");
             box-sizing: border-box;
@@ -22,7 +23,7 @@
 
     .form {
         margin: auto;
-        flex-grow: 2;
+        flex-grow: 1;
         h3 {
             text-align: center;
         }
@@ -77,6 +78,7 @@
     }
     .form {
         width: 95%;
+        max-width: 550px;
         position: absolute;
         left: 50%;
         top: 50%;

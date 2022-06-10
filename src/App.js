@@ -37,7 +37,6 @@ function App() {
     //   }
     // };
     // fetchUsers();
-    console.log(process.env.REACT_APP_API_PATH);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -50,7 +49,8 @@ function App() {
               <Layout />
             </Suspense>
           }
-        />
+        >
+        </Route>
         <Route
           path="/login"
           element={
