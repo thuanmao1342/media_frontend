@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import BackDrop from "./pages/notfound/Backdrop";
 import { useTranslation } from "react-i18next";
+// import userServie from "./services/user/userService";
 
 const Login = lazy(() => import("./pages/auth/login/Login"));
 const NotFound = lazy(() => import("./pages/notfound/NotFound"));
@@ -27,7 +28,16 @@ function App() {
   useEffect(() => {
     document.title = t("common:app_name");
     getLanguage();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // const fetchUsers = async () => {
+    //   try {
+    //     const response = await userServie.getAll();
+    //     console.log("Fetch products successfully: ", response);
+    //   } catch (error) {
+    //     console.log("Failed to fetch product list: ", error);
+    //   }
+    // };
+    // fetchUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="App">
@@ -39,7 +49,8 @@ function App() {
               <Layout />
             </Suspense>
           }
-        />
+        >
+        </Route>
         <Route
           path="/login"
           element={

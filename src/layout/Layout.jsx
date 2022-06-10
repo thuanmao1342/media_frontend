@@ -11,6 +11,7 @@ import Zoom from "@mui/material/Zoom";
 import CustomAppBar from "./appbar/CustomAppBar";
 import Footer from "./footer/Footer";
 import { useTranslation } from "react-i18next";
+import CustomRouter from "./CustomRouter";
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -51,10 +52,6 @@ function ScrollTop(props) {
 
 ScrollTop.propTypes = {
   children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 
@@ -67,9 +64,7 @@ export default function Layout(props) {
       <Toolbar id="back-to-top-anchor" />
       <Container maxWidth="xl">
         <Box sx={{ my: 2 }}>
-          {t("content:post")}
-          {t("content:post")}
-          {t("content:post")}
+          <CustomRouter />
         </Box>
       </Container>
       <Footer />
