@@ -10,8 +10,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Zoom from "@mui/material/Zoom";
 import CustomAppBar from "./appbar/CustomAppBar";
 import Footer from "./footer/Footer";
-import { useTranslation } from "react-i18next";
-import CustomRouter from "./CustomRouter";
+import { Outlet } from "react-router-dom";
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -56,7 +55,6 @@ ScrollTop.propTypes = {
 };
 
 export default function Layout(props) {
-  const [t] = useTranslation("common");
   return (
     <React.Fragment>
       <CssBaseline />
@@ -64,7 +62,7 @@ export default function Layout(props) {
       <Toolbar id="back-to-top-anchor" />
       <Container maxWidth="xl">
         <Box sx={{ my: 2 }}>
-          <CustomRouter />
+          <Outlet />
         </Box>
       </Container>
       <Footer />

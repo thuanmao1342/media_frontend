@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import BackDrop from "./pages/notfound/Backdrop";
 import { useTranslation } from "react-i18next";
+import PrivateRoute from "./app/auth/PrivateRoute";
 // import userServie from "./services/user/userService";
 
 const Login = lazy(() => import("./pages/auth/login/Login"));
@@ -12,6 +13,7 @@ const Register = lazy(() => import("./pages/auth/register/Register"));
 const ForgotPassword = lazy(() =>
   import("./pages/auth/forgotpassword/ForgotPassword")
 );
+const Home = lazy(() => import("./pages/home/Home"));
 
 function App() {
   const { t, i18n } = useTranslation("common");
@@ -50,12 +52,22 @@ function App() {
             </Suspense>
           }
         >
+          <Route
+            index
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            }
+          />
         </Route>
         <Route
           path="/login"
           element={
             <Suspense fallback={<BackDrop />}>
-              <Login />
+              <PrivateRoute>
+                <Login />
+              </PrivateRoute>
             </Suspense>
           }
         />

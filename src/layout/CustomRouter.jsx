@@ -1,14 +1,14 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import Home from "../pages/home/Home";
 
 function CustomRouter() {
   return (
     <div>
       ok
+      <Outlet />
       <Routes>
-        ok
-        <Route path="/a" component={Home} />
+        <Route path="home" component={Home} />
       </Routes>
     </div>
   );

@@ -81,7 +81,7 @@ const CustomAppBar = () => {
   const logUot = () => {
     setAnchorElUser(null);
     setAnchorElNav(null);
-    localStorage.removeItem("CUREENT_USER");
+    localStorage.removeItem("CURRENT_USER");
     window.location.href = "/login";
   };
 
