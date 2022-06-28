@@ -11,6 +11,7 @@ import Zoom from "@mui/material/Zoom";
 import CustomAppBar from "./appbar/CustomAppBar";
 import Footer from "./footer/Footer";
 import { Outlet } from "react-router-dom";
+import ChatComponent from "../component/botchat/ChatComponent";
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -63,6 +64,7 @@ export default function Layout(props) {
       <Container maxWidth="xl">
         <Box sx={{ my: 2 }}>
           <Outlet />
+          <ChatComponent />
         </Box>
       </Container>
       <Footer />
