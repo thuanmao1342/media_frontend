@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+import s3Service from "../../services/s3service/S3Service";
+
 function PlayMusic() {
     const audio = new Audio();
     const [isPlaying, setIsPlaying] = useState(false);
@@ -14,12 +16,16 @@ function PlayMusic() {
         }
         setIsPlaying(!isPlaying);
     };
+    const s3ServiceHandler = () => {
+        s3Service.log();
+    }
     return (
         <div>
             <h3>PlayMusic</h3>
             <div>
                 <button onClick={onPlayClick}>{isPlaying ? 'Pause' : 'Play'}</button>
             </div>
+            <button onClick={s3ServiceHandler}>Upload</button>
         </div>
     );
 }
