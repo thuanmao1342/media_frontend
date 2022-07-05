@@ -23,13 +23,13 @@ axiosClient.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error && error.response && error.response.data) {
-        return Promise.reject(error.response.data);
-    }
-    if (error.response.status === 401) {
-        localStorage.removeItem("token");
-        window.location.href = "/login";
-    }
+    // if (error && error.response && error.response.data) {
+    //     return Promise.reject(error.response.data);
+    // }
+    // if (!!error.response.status && error.response.status === 401) {
+    //     localStorage.removeItem("token");
+    //     window.location.href = "/login";
+    // }
     throw error;
   }
 );

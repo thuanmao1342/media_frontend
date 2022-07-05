@@ -17,7 +17,15 @@ function PlayMusic() {
         setIsPlaying(!isPlaying);
     };
     const s3ServiceHandler = () => {
-        s3Service.log();
+        const generateUrl = async () => {
+            try {
+              const response = await s3Service.generateUploadUrl("test.png");
+              console.log("Fetch products successfully: ", response);
+            } catch (error) {
+              console.log("Failed to fetch product list: ", error);
+            }
+          };
+        generateUrl();
     }
     return (
         <div>
