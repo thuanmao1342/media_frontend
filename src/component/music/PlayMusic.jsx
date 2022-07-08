@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
 
-import s3Service from "../../services/s3service/S3Service";
-
 function PlayMusic() {
     const audio = new Audio();
     const [isPlaying, setIsPlaying] = useState(false);
@@ -16,24 +14,12 @@ function PlayMusic() {
         }
         setIsPlaying(!isPlaying);
     };
-    const s3ServiceHandler = () => {
-        const generateUrl = async () => {
-            try {
-              const response = await s3Service.generateUploadUrl("test.png");
-              console.log("Fetch products successfully: ", response);
-            } catch (error) {
-              console.log("Failed to fetch product list: ", error);
-            }
-          };
-        generateUrl();
-    }
     return (
         <div>
             <h3>PlayMusic</h3>
             <div>
                 <button onClick={onPlayClick}>{isPlaying ? 'Pause' : 'Play'}</button>
             </div>
-            <button onClick={s3ServiceHandler}>Upload</button>
         </div>
     );
 }

@@ -1,19 +1,8 @@
-import { lazy, Suspense, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
 import "./App.css";
-import BackDrop from "./pages/notfound/Backdrop";
-import { useTranslation } from "react-i18next";
-import PrivateRoute from "./app/auth/PrivateRoute";
-// import userServie from "./services/user/userService";
 
-const Login = lazy(() => import("./pages/auth/login/Login"));
-const NotFound = lazy(() => import("./pages/notfound/NotFound"));
-const Layout = lazy(() => import("./layout/Layout"));
-const Register = lazy(() => import("./pages/auth/register/Register"));
-const ForgotPassword = lazy(() =>
-  import("./pages/auth/forgotpassword/ForgotPassword")
-);
-const Home = lazy(() => import("./pages/home/Home"));
+import { useTranslation } from "react-i18next";
+import CustomRouter from "./layout/CustomRouter";
 
 function App() {
   const { t, i18n } = useTranslation("common");
@@ -43,59 +32,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Suspense fallback={<BackDrop />}>
-              <Layout />
-            </Suspense>
-          }
-        >
-          <Route
-            index
-            element={
-              <PrivateRoute>
-                <Home />
-              </PrivateRoute>
-            }
-          />
-        </Route>
-        <Route
-          path="/login"
-          element={
-            <Suspense fallback={<BackDrop />}>
-              <PrivateRoute>
-                <Login />
-              </PrivateRoute>
-            </Suspense>
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <Suspense fallback={<BackDrop />}>
-              <Register />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/forgot-password"
-          element={
-            <Suspense fallback={<BackDrop />}>
-              <ForgotPassword />
-            </Suspense>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <Suspense fallback={<BackDrop />}>
-              <NotFound />
-            </Suspense>
-          }
-        />
-      </Routes>
+      <CustomRouter />
     </div>
   );
 }
