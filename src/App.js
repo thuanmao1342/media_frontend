@@ -29,11 +29,7 @@ function App() {
     // fetchUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return (
-    <div className="App">
-      <CustomRouter />
-    </div>
-  );
+  return <CustomRouter />;
 }
 
 export default App;

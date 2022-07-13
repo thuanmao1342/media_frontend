@@ -19,6 +19,7 @@ import Footer from "./footer/Footer";
 import { Outlet } from "react-router-dom";
 import { Fade } from "@mui/material";
 import CustomMenuBar from "./CustomMenuBar";
+import PlayMusic from "../component/music/PlayMusic";
 
 //scroll to top
 function ScrollTop(props) {
@@ -46,7 +47,7 @@ function ScrollTop(props) {
       <Box
         onClick={handleClick}
         role="presentation"
-        sx={{ position: "fixed", bottom: 16, right: 16 }}
+        sx={{ position: "fixed", bottom: 100, right: 16 }}
       >
         {children}
       </Box>
@@ -170,6 +171,7 @@ export default function Layout(props) {
           <Footer />
         </Main>
       </Box>
+      <PlayMusic />
       <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
