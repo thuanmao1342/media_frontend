@@ -16,8 +16,8 @@ function NotFound() {
                 <div className={styles.mouth}></div>
             </div>
 
-            <h1>Oops! Something went wrong!</h1>
-            <a href={currentUser?"/":"login"}>
+            <h1 className={styles.h1}>Oops! Something went wrong!</h1>
+            <a className={styles.a} href={currentUser?"/":"login"}>
               <div className={styles.btn}>Return to Home</div>  
             </a>
         </div>

@@ -3,6 +3,14 @@ import styles from "./sildeshow.module.scss";
 import Slider from "react-slick";
 
 function SlideShowComponent() {
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "100px",
+    slidesToShow: 3,
+    speed: 500,
+  };
   const slides = [
     {
       city: "Paris",
@@ -32,16 +40,25 @@ function SlideShowComponent() {
 
   return (
     <Fragment>
-      <Slider>
-        {slides.map((slide, index) => (
-          <div key={index}>
-            <img
-              style={{ width: 100, height: 100 }}
-              src={slide.img}
-              alt={slide.city}
-            />
-          </div>
-        ))}
+      <Slider {...settings}>
+        <div>
+          <h3>1</h3>
+        </div>
+        <div>
+          <h3>2</h3>
+        </div>
+        <div>
+          <h3>3</h3>
+        </div>
+        <div>
+          <h3>4</h3>
+        </div>
+        <div>
+          <h3>5</h3>
+        </div>
+        <div>
+          <h3>6</h3>
+        </div>
       </Slider>
     </Fragment>
   );

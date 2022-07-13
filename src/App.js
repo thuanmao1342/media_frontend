@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import "./App.css";
-
 import { useTranslation } from "react-i18next";
 import CustomRouter from "./layout/CustomRouter";
 
