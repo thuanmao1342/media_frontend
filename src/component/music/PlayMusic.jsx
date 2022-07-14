@@ -2,7 +2,7 @@ import { IconButton, Slider, Stack, Typography } from "@mui/material";
 import React from "react";
 import styles from "./playmusic.module.scss";
 import classnames from "classnames";
-import AudioPlayer from "react-h5-audio-player";
+import ReactAudioPlayer from "react-audio-player";
 import VolumeDown from "@mui/icons-material/VolumeDown";
 import VolumeUp from "@mui/icons-material/VolumeUp";
 import PlayCircleFilledTwoToneIcon from "@mui/icons-material/PlayCircleFilledTwoTone";
@@ -13,6 +13,7 @@ import RepeatIcon from "@mui/icons-material/Repeat";
 import RepeatOneIcon from "@mui/icons-material/RepeatOne";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import InsightsIcon from "@mui/icons-material/Insights";
+import urlMusic from "../../assets/images/source.mp3";
 
 function PlayMusic(props) {
   const settinginit = {
@@ -23,8 +24,6 @@ function PlayMusic(props) {
     isMute: false,
   };
   const [setting, setSetting] = React.useState(settinginit);
-  const urlMusic =
-    "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
 
   const handleChange = (event, newValue) => {
     if (newValue === 0) {
@@ -89,15 +88,18 @@ function PlayMusic(props) {
             )}
           </IconButton>
         </div>
+        <ReactAudioPlayer
+          src={urlMusic}
+          onPause={() => setSetting({ ...setting, isPlay: false })}
+          volume={setting.volume / 100}
+          onPlay={() => {
+            setSetting({ ...setting, isPlay: true });
+          }}
+        />
         <div className={styles.time}>
           <span>00:00</span>
           <span>00:00</span>
         </div>
-        <AudioPlayer
-          showJumpControls={false}
-          customVolumeControls={[]}
-          src={urlMusic}
-        />
         <Slider
           style={{ width: "100%" }}
           size="small"
