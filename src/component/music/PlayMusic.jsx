@@ -1,8 +1,6 @@
-import { IconButton, Slider, Stack, Typography } from "@mui/material";
+import { Container, Grid, IconButton, Slider, Tooltip } from "@mui/material";
 import React from "react";
 import styles from "./playmusic.module.scss";
-import classnames from "classnames";
-import ReactAudioPlayer from "react-audio-player";
 import VolumeDown from "@mui/icons-material/VolumeDown";
 import VolumeUp from "@mui/icons-material/VolumeUp";
 import PlayCircleFilledTwoToneIcon from "@mui/icons-material/PlayCircleFilledTwoTone";
@@ -13,23 +11,42 @@ import RepeatIcon from "@mui/icons-material/Repeat";
 import RepeatOneIcon from "@mui/icons-material/RepeatOne";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import InsightsIcon from "@mui/icons-material/Insights";
+import PlaylistPlayIcon from "@mui/icons-material/PlaylistPlay";
 import urlMusic from "../../assets/images/source.mp3";
 
 function PlayMusic(props) {
   const settinginit = {
-    volume: 50,
     repeat: 0,
     isPlay: false,
     mix: false,
     isMute: false,
+    title:
+      "bai hat nay khong phai la bai hat va cai ten nay rat la dai luon, n dai nen khong the hien thi het duoc",
+    artist: "ca si dep trai",
   };
+  const audioRef = React.useRef();
   const [setting, setSetting] = React.useState(settinginit);
+  const [currentTime, setCurrentTime] = React.useState(0);
+  // const [duration, setDuration] = React.useState(0);
+  const [volume, setVolume] = React.useState(1);
 
-  const handleChange = (event, newValue) => {
+  //controls the music
+  const handleChangeVolume = (event, newValue) => {
     if (newValue === 0) {
-      setSetting({ ...setting, volume: 0, isMute: true });
+      setSetting({ ...setting, isMute: true });
     } else {
-      setSetting({ ...setting, volume: newValue, isMute: false });
+      setSetting({ ...setting, isMute: false });
+    }
+    audioRef.current.volume = newValue / 100;
+    setVolume(newValue);
+  };
+  const handleChangeVolumeMute = () => {
+    if (setting.isMute) {
+      setSetting({ ...setting, isMute: false });
+      audioRef.current.volume = volume / 100;
+    } else {
+      setSetting({ ...setting, isMute: true });
+      audioRef.current.volume = 0;
     }
   };
   const handleMix = () => {
@@ -42,90 +59,167 @@ function PlayMusic(props) {
       setSetting({ ...setting, repeat: setting.repeat + 1 });
     }
   };
+  const handleChangeTime = (event, newValue) => {
+    audioRef.current.currentTime = newValue;
+  };
   const handlePlay = () => {
+    if (setting.isPlay) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    audioRef.volume = setting.volume / 100;
     setSetting({ ...setting, isPlay: !setting.isPlay });
   };
+  //event audio
+  const handleUpdateTime = (e) => {
+    const { currentTime } = e.target;
+    setCurrentTime(currentTime);
+  };
+  //controls the music
+
+  const convertTime = (time) => {
+    const hour = Math.floor(time / 3600);
+    const minute = Math.floor((time % 3600) / 60);
+    const second = Math.floor(time % 60);
+    return `${hour > 0 ? `${hour}:` : ""}${
+      minute < 10 ? `0${minute}` : minute
+    }:${second < 10 ? `0${second}` : second}`;
+  };
+
   return (
     <div className={styles.play_music}>
-      <div className={classnames(styles.play_item, styles.cart_info)}>
-        <div>
-          <Typography variant="h6">Live From Space</Typography>
-          <Typography variant="subtitle1" color="text.secondary">
-            Mac Miller
-          </Typography>
-        </div>
-        <img src="https://source.unsplash.com/random" alt="anh" />
-      </div>
-      <div className={styles.play_item_control}>
-        <div className={styles.btn_group}>
-          <IconButton onClick={handleMix}>
-            {setting.mix ? (
-              <InsightsIcon color="secondary" />
-            ) : (
-              <InsightsIcon />
-            )}
-          </IconButton>
-          <IconButton>
-            <SkipPreviousTwoToneIcon />
-          </IconButton>
-          <IconButton onClick={handlePlay}>
-            {setting.isPlay ? (
-              <PauseCircleFilledTwoToneIcon />
-            ) : (
-              <PlayCircleFilledTwoToneIcon />
-            )}
-          </IconButton>
-          <IconButton>
-            <SkipNextTwoToneIcon />
-          </IconButton>
-          <IconButton onClick={handleRePlay}>
-            {setting.repeat === 0 ? (
-              <RepeatIcon />
-            ) : setting.repeat === 1 ? (
-              <RepeatIcon color="secondary" />
-            ) : (
-              <RepeatOneIcon color="secondary" />
-            )}
-          </IconButton>
-        </div>
-        <ReactAudioPlayer
-          src={urlMusic}
-          onPause={() => setSetting({ ...setting, isPlay: false })}
-          volume={setting.volume / 100}
-          onPlay={() => {
-            setSetting({ ...setting, isPlay: true });
-          }}
-        />
-        <div className={styles.time}>
-          <span>00:00</span>
-          <span>00:00</span>
-        </div>
-        <Slider
-          style={{ width: "100%" }}
-          size="small"
-          defaultValue={70}
-          aria-label="Small"
-          valueLabelDisplay="auto"
-          color="secondary"
-        />
-      </div>
-      <div className={styles.play_item}>
-        <Stack
-          spacing={2}
-          style={{ width: "100%" }}
-          direction="row"
-          sx={{ mb: 1 }}
-          alignItems="center"
-        >
-          {setting.isMute ? <VolumeOffIcon /> : <VolumeDown />}
-          <Slider
-            aria-label="Volume"
-            value={setting.volume}
-            onChange={handleChange}
-          />
-          <VolumeUp />
-        </Stack>
-      </div>
+      {/* audio */}
+      <audio
+        ref={audioRef}
+        src={urlMusic}
+        preload="auto"
+        onEnded={() => {
+          audioRef.current.currentTime = 0;
+          setSetting({ ...setting, isPlay: false });
+        }}
+        onPlay={() => console.log("play")}
+        onTimeUpdate={handleUpdateTime}
+      />
+      <Container maxWidth={"xl"}>
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+            <div className={styles.play_item_control}>
+              <Grid container spacing={1}>
+                <Grid item xs={4}>
+                  <div className={styles.btn_group}>
+                    <IconButton onClick={handleMix}>
+                      {setting.mix ? (
+                        <InsightsIcon color="secondary" />
+                      ) : (
+                        <InsightsIcon />
+                      )}
+                    </IconButton>
+                    <IconButton>
+                      <SkipPreviousTwoToneIcon />
+                    </IconButton>
+                    <IconButton onClick={handlePlay}>
+                      {setting.isPlay ? (
+                        <PauseCircleFilledTwoToneIcon />
+                      ) : (
+                        <PlayCircleFilledTwoToneIcon />
+                      )}
+                    </IconButton>
+                    <IconButton>
+                      <SkipNextTwoToneIcon />
+                    </IconButton>
+                    <IconButton onClick={handleRePlay}>
+                      {setting.repeat === 0 ? (
+                        <RepeatIcon />
+                      ) : setting.repeat === 1 ? (
+                        <RepeatIcon color="secondary" />
+                      ) : (
+                        <RepeatOneIcon color="secondary" />
+                      )}
+                    </IconButton>
+                    <div className={styles.volume}>
+                      <div className={styles.volume_control}>
+                        {setting.isMute ? (
+                          <IconButton onClick={handleChangeVolumeMute}>
+                            <VolumeOffIcon />
+                          </IconButton>
+                        ) : (
+                          <IconButton onClick={handleChangeVolumeMute}>
+                            {volume < 50 ? <VolumeDown /> : <VolumeUp />}
+                          </IconButton>
+                        )}
+                        <div className={styles.volume_slider}>
+                          <Slider
+                            aria-label="Volume"
+                            orientation="vertical"
+                            size="small"
+                            min={0}
+                            max={100}
+                            value={volume}
+                            onChange={handleChangeVolume}
+                            valueLabelDisplay="auto"
+                            valueLabelFormat={(value) => `${value}%`}
+                            color="secondary"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
+                <Grid item xs={8}>
+                  <div className={styles.time_control}>
+                    <div className={styles.time}>
+                      <span>{audioRef ? convertTime(currentTime) : "0:0"}</span>
+                      <span>
+                        {audioRef?.current
+                          ? convertTime(audioRef?.current?.duration)
+                          : "00:00"}
+                      </span>
+                    </div>
+                    <Slider
+                      style={{ width: "100%" }}
+                      size="small"
+                      defaultValue={0}
+                      value={currentTime}
+                      onChange={handleChangeTime}
+                      max={
+                        audioRef?.current ? audioRef?.current?.duration : 100
+                      }
+                      aria-label="Small"
+                      valueLabelDisplay="auto"
+                      valueLabelFormat={(value) => convertTime(value)}
+                      color="secondary"
+                    />
+                  </div>
+                </Grid>
+              </Grid>
+            </div>
+          </Grid>
+          <Grid item xs={4}>
+            <Grid container spacing={1}>
+              <Grid item xs={11}>
+                <div className={styles.cart_info}>
+                  <Tooltip title={setting.title} placement="top">
+                    <h4>{setting.title}</h4>
+                  </Tooltip>
+                  <Tooltip title={setting.artist} placement="top">
+                    <span>{setting.artist}</span>
+                  </Tooltip>
+                </div>
+              </Grid>
+              <Grid
+                item
+                xs={1}
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <IconButton>
+                  <PlaylistPlayIcon />
+                </IconButton>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 }
